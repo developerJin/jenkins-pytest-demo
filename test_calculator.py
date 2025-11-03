@@ -24,3 +24,7 @@ class TestCaculator:
     def test_divide_by_zero(self):
         with pytest.raises(ValueError):
             self.calc.divide(10, 0)
+
+    def test_power(self):
+        assert self.calc.power(2, 3) == 8
+        assert self.calc.power(5, 2) == 25
