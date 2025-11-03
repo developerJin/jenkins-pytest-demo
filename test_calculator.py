@@ -21,6 +21,6 @@ class TestCaculator:
         assert self.calc.divide(10, 2) == 5
         assert self.calc.divide(9, 3) == 3
 
-    # def test_divide(self):
-    #     assert self.calc.divide(10, 2) == 5
-    #     assert self.calc.divide(9, 3) == 3
+    def test_divide_by_zero(self):
+        with pytest.raises(ValueError):
+            self.calc.divide(10, 0)
