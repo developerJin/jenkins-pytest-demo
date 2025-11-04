@@ -1,6 +1,19 @@
 pipeline {
     agent any
+
+    environment {
+        PROJECT_NAME = 'pytest-demo'
+        TEST_BROSER = 'chrome'
+    }
+
     stages {
+        stage('환경 정보') {
+            steps {
+                echo "프로젝트: ${PROJECT_NAME}"
+                echo "Python 버전: ${TEST_BROSER}"
+            }
+        }
+
         stage('Checkout') {
             steps {
             echo '코드를 가져옵니다'
@@ -12,8 +25,8 @@ pipeline {
             echo '환경을 설정합니다'
             sh '''
                 python3 -m venv venv
-                . venv/bin/activate
-                pip install -r requirements.txt
+                // . venv/bin/activate
+                // pip install -r requirements.txt
             '''
             }
         }
